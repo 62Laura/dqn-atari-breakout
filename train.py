@@ -13,7 +13,7 @@ import ale_py
 import gymnasium as gym
 import numpy as np
 import torch
-import torch.nn as nn
+from q_network import QNetwork
 from gymnasium.wrappers import AtariPreprocessing, FrameStackObservation
 
 gym.register_envs(ale_py)
@@ -121,16 +121,6 @@ def main():
     torch.save(online.state_dict(), model_path)  # play.py loads this state_dict
     print(f"Saved model to {model_path} and log to {log_path}")
 
-
-
-class QNetwork(nn.Module):
-    """CNN with torch.nn: 3 conv layers + 2 linear layers.
-    Input : batch of stacked frames, shape (batch, 4, 84, 84), uint8 0..255 (divide by 255 inside forward)
-    Output: Q-values, shape (batch, n_actions)
-    """
-    def __init__(self, n_actions):
-        super().__init__()
-        raise NotImplementedError("Member 2: write QNetwork")
 
 
 class ReplayBuffer:
