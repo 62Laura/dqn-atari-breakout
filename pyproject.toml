@@ -1,0 +1,11 @@
+[project]
+name = "dqn-atari-breakout"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "ale-py>=0.12.1",
+    "gymnasium>=1.4.0",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.4",
+    "torch>=2.15.0",
+]
