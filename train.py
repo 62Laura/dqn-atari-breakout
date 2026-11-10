@@ -14,6 +14,8 @@ import gymnasium as gym
 import numpy as np
 import torch
 from q_network import QNetwork
+from replay_buffer import ReplayBuffer
+from train_step import train_step
 from gymnasium.wrappers import AtariPreprocessing, FrameStackObservation
 
 gym.register_envs(ale_py)
@@ -120,23 +122,6 @@ def main():
     log_file.close()
     torch.save(online.state_dict(), model_path)  # play.py loads this state_dict
     print(f"Saved model to {model_path} and log to {log_path}")
-
-
-
-class ReplayBuffer:
-    """Stores (state, action, reward, next_state, done) tuples.
-    add(state, action, reward, next_state, done)
-    sample(batch_size) -> states, actions, rewards, next_states, dones   (all torch tensors)
-    __len__() -> number of stored transitions
-    """
-    def __init__(self, capacity):
-        raise NotImplementedError("Member 3: write ReplayBuffer")
-
-
-def train_step(online, target, buffer, optimizer, batch_size, gamma):
-    """One learning step: sample a batch, Q-values from the online network, Bellman target from
-    the target network, loss, backward, optimizer step. Returns the loss as a float."""
-    raise NotImplementedError("Member 3: write train_step")
 
 
 
