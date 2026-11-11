@@ -127,13 +127,31 @@ def main():
 
 def epsilon_by_step(step, start, end, decay):
     """Epsilon at this step: goes from `start` to `end` over `decay` steps, then stays at `end`."""
-    raise NotImplementedError("Member 4: write epsilon_by_step")
+    # Decay is finished (or there is nothing to decay): stay at the final value
+    if step >= decay:
+        return end
+
+    # Still decaying. progress goes from 0.0 (first step) up to 1.0 (end of decay).
+    progress = step / decay
+
+    # Straight line from start down to end
+    return start + (end - start) * progress
 
 
 def select_action(online, state, epsilon, n_actions):
     """With probability epsilon return a random action, otherwise the action with the highest Q-value
     from the online network. `state` is a numpy array (4, 84, 84). Returns an int."""
-    raise NotImplementedError("Member 4: write select_action")
+    # Explore: roll a random number between 0 and 1. If it is smaller than epsilon,
+    # ignore the network and try a random action.
+    if random.random() < epsilon:
+        return random.randrange(n_actions)
+
+    # Exploit: ask the network which action it thinks is best.
+    device = next(online.parameters()).device           # CPU or GPU, wherever the network lives
+    state = torch.as_tensor(state).unsqueeze(0).to(device)  # (4, 84, 84) -> (1, 4, 84, 84): a batch of one
+    with torch.no_grad():                               # we are only choosing, not learning
+        q_values = online(state)                        # shape (1, n_actions): one score per action
+    return int(q_values.argmax(dim=1).item())           # index of the highest score
 
 
 if __name__ == "__main__":
