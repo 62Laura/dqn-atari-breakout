@@ -14,10 +14,10 @@ Everything is written by us in Python with PyTorch. We did **not** use any ready
 
 | Member | Name | Part |
 |---|---|---|
-| Member 1 | [add name] | Repository, setup, environment, main training loop (`train.py`) |
-| Member 2 | [add name] | Neural network (`q_network.py`) and live demo (`play.py`) |
-| Member 3 | [add name] | Replay buffer, training step, task allocation sheet |
-| Member 4 | [add name] | Epsilon-greedy, plots, README, final check |
+| Member 1 | Celine Laura Ishimwe | Repository, setup, environment, main training loop (`train.py`) |
+| Member 2 | Ulrich Rukazambuga | Neural network (`q_network.py`) and live demo (`play.py`) |
+| Member 3 | Gentil Tonny Christian Iradukunda | Replay buffer, training step, task allocation sheet |
+| Member 4 | MAHE Digne | Epsilon-greedy, plots, README, final check |
 
 Each member also ran 10 experiments with different hyperparameters. The models and the results table are in the
 member's own folder.
@@ -162,9 +162,7 @@ epsilon start, end and decay). In each member's folder you will find:
 The plots of the **best experiment** are in the `plots/` folder. The best model is also copied to the root of the
 repo as `dqn_model.pth`, and this is the one `play.py` loads.
 
-<!-- After choosing the best experiment, show its plot here, for example:
-![Best experiment](plots/Tonny_exp03_results.png)
--->
+![Best experiment](plots/Mahe_exp08_results.png)
 
 ## 7. Demo video
 
