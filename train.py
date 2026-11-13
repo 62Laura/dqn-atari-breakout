@@ -66,7 +66,14 @@ def main():
     model_path = os.path.join(member, f"{exp}_model.pth")
     log_path = os.path.join(member, f"{exp}_log.csv")
 
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if torch.cuda.is_available():
+        device = torch.device("cuda")
+    elif torch.backends.mps.is_available():
+        device = torch.device("mps")
+    else:
+        device = torch.device("cpu")
+
+    print(f"Using device: {device}")
     env = make_env()
     n_actions = env.action_space.n
 
