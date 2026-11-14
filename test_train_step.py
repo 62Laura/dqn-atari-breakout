@@ -1,7 +1,4 @@
-"""Checks ReplayBuffer and train_step on random data: the loss must go down.
-
-Run with: uv run test_train_step.py
-"""
+# uv run test_train_step.py
 
 import numpy as np
 import torch
@@ -15,12 +12,11 @@ BATCH_SIZE = 32
 
 
 def tiny_network():
-    # A small stand-in for QNetwork, so this test does not depend on it.
     return nn.Sequential(nn.Flatten(), nn.Linear(4 * 84 * 84, N_ACTIONS))
 
 
 def fill_buffer():
-    # Exactly one batch of random transitions, so every sample is the same batch.
+    # buffer holds exactly one batch, so every sample is the same batch
     buffer = ReplayBuffer(capacity=BATCH_SIZE)
     for _ in range(BATCH_SIZE):
         state = np.random.randint(0, 256, (4, 84, 84), dtype=np.uint8)
@@ -47,7 +43,7 @@ def main():
               for _ in range(100)]
     print(f"first loss {losses[0]:.4f}, last loss {losses[-1]:.4f}")
     assert losses[-1] < losses[0], "loss did not go down"
-    print("OK: loss goes down on a fixed batch")
+    print("loss goes down")
 
 
 if __name__ == "__main__":
