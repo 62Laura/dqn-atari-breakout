@@ -189,7 +189,6 @@ uv run plot_results.py
 uv run check_repo.py
 ```
 
-`--name` must look like `MemberName_expNN`. The model and the log are saved in the folder `MemberName/`.
 
 ## 9. Repository structure
 
