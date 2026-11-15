@@ -166,7 +166,7 @@ repo as `dqn_model.pth`, and this is the one `play.py` loads.
 
 ## 7. Demo video
 
-[Watch the demo video](ADD-VIDEO-LINK-HERE)
+[Watch the demo video](https://youtube.com/shorts/a_Le7P_kGRc?feature=share)
 
 ## 8. How to run
 
