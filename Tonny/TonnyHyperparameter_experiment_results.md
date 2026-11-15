@@ -2,6 +2,8 @@
 
 Environment: ALE/Breakout-v5, 300,000 steps per run. Experiment 1 is the baseline, the others change one thing. "Avg reward" is the mean of the first 20 and the last 20 episodes.
 
+Experiments 1, 4, 6 and 10 use the same settings as Ulrich's experiments 1, 4, 7 and 9. train.py fixes the random seed at 42, so they produce identical logs and models. I re-ran all four on 15 November and got the same files again.
+
 | Experiment | Learning rate | Gamma | Batch size | Epsilon start | Epsilon end | Epsilon decay | Observed behaviour |
 |---|---|---|---|---|---|---|---|
 | 1 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 100000 | Baseline. Avg reward 1.2 to 13.4, best episode 31. Episodes went from about 180 to 580 steps. Still slowly improving at the end. |
