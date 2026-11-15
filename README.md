@@ -152,7 +152,7 @@ the weights so the network's prediction gets closer to the target.
 
 ## 6. Experiments
 
-Each member ran 10 experiments, changing the hyperparameters one at a time (learning rate, gamma, batch size,
+Each member ran 10 experiments, changing one or two hyperparameters at a time (learning rate, gamma, batch size,
 epsilon start, end and decay). In each member's folder you will find:
 
 - `expNN_model.pth`: the saved model of experiment NN
@@ -162,7 +162,7 @@ epsilon start, end and decay). In each member's folder you will find:
 The plots of the **best experiment** are in the `plots/` folder. The best model is also copied to the root of the
 repo as `dqn_model.pth`, and this is the one `play.py` loads.
 
-![Best experiment](plots/Mahe_exp08_results.png)
+![Best experiment](plots/Laura_exp10_results.png)
 
 ## 7. Demo video
 
